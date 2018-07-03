@@ -1,4 +1,4 @@
-resolver: lts-9.0
+resolver: nightly-2018-06-29 #lts-9.0
 
 packages:
   - location: .
@@ -11,10 +11,10 @@ flags:
     FFI: true
     GMP: true
 
-extra-deps:
-   - binary-0.8.5.1
-   - cheapskate-0.1.1
+#extra-deps:
+   #- binary-0.8.5.1
+   #- cheapskate-0.1.1
   
-nix:
-  enable: false
-  shell-file: stack-shell.nix
+#nix:
+  #enable: false
+  #shell-file: stack-shell.nix

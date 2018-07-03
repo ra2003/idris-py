@@ -83,12 +83,14 @@ main = do
     putStrLn' $ "Something's wrong, your root's homedir is writable!"
   ) `catch` (\etype, e => case etype of
     OSError => putStrLn' $ "  -> (1) everything's fine: " ++ showException e
+    FileNotFoundError => putStrLn' ("  -> (2) everything's fine: " ++ showException e)
     _       => raise e
   )
 
   -- Idris sugar, originally used in Effects
   OK ret <- try $ os /. "mkdir" $. ["/root/hello"]
     | Except OSError e => putStrLn' ("  -> (2) everything's fine: " ++ showException e)
+    | Except FileNotFoundError e => putStrLn' ("  -> (2) everything's fine: " ++ showException e)
     | Except _       e => raise e
   putStrLn' $ "Your root could probably use some security lessons!"
 

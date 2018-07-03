@@ -26,6 +26,7 @@ data ExceptionType : Type where
   EnvironmentError : ExceptionType
   IOError : ExceptionType
   OSError : ExceptionType
+  FileNotFoundError: ExceptionType
   WindowsError : ExceptionType
   VMSError : ExceptionType
   EOFError : ExceptionType
@@ -66,6 +67,7 @@ fromString s = case s of
   "EnvironmentError" => EnvironmentError
   "IOError" => IOError
   "OSError" => OSError
+  "FileNotFoundError" => FileNotFoundError
   "WindowsError" => WindowsError
   "VMSError" => VMSError
   "EOFError" => EOFError

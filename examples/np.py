@@ -45,7 +45,7 @@ class _ConsIter(object):
   def __init__(self, node):
     self.node = node
 
-  def next(self):
+  def __next__(self):
     if self.node.isNil:
       raise StopIteration
     else:

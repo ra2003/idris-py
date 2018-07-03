@@ -23,4 +23,4 @@ QueueM f = case f of
   _ => Module f
 
 import_ : PIO $ Obj QueueM
-import_ = importModule "Queue"  -- this is lowercase in python3
+import_ = importModule "queue"  -- this is lowercase in python3

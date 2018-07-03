@@ -11,7 +11,7 @@ import Python.Functions
 ||| The actual state of iteration.
 Iterator : Type -> Signature
 Iterator a f = case f of
-  "next" => [] ~~> a
+  "__next__" => [] ~~> a
   _ => Object f
 
 ||| Something that can produce an iterator.
@@ -58,7 +58,7 @@ obj x = believe_me x
 ||| Get the next value from an iterator.
 next : Obj (Iterator a) -> PIO (Maybe a)
 next {a = a} it = do
-  OK x <- try (it /. "next" $. [])
+  OK x <- try (it /. "__next__" $. [])
     | Except StopIteration e => pure Nothing
     | Except _ e => raise e
   pure $ Just x

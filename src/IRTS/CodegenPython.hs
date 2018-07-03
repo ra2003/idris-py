@@ -1,6 +1,8 @@
 {-# LANGUAGE PatternGuards #-}
 module IRTS.CodegenPython (codegenPython) where
 
+import Prelude hiding ((<>))
+
 import IRTS.CodegenCommon
 import IRTS.Lang hiding (lift)
 import IRTS.Simplified
@@ -159,7 +161,7 @@ pythonPreamble = vcat . map text $
     , "  def __init__(self, node):"
     , "    self.node = node"
     , ""
-    , "  def next(self):"
+    , "  def __next__(self):"
     , "    if self.node.isNil:"
     , "      raise StopIteration"
     , "    else:"
